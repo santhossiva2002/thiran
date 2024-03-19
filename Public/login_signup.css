@@ -1,0 +1,207 @@
+body {
+    margin-right: 10%;
+    margin-left: 10%;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.main-content{
+    display: flex;
+}
+
+.main-gif {
+    margin-top: 100px;
+    margin-left: 70px;
+}
+
+
+.main {
+    width: auto;
+    height: 500px;
+    width: 550px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-left: 70px;
+    box-shadow: 5px 20px 50px #000;
+}
+
+.main
+
+#chk {
+    display: none;
+}
+
+.signup {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: -50px;
+}
+
+.register {
+    color: #481099;
+}
+
+
+label {
+    color: #fff;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.input-register {
+    color: black;
+    width: 60%;
+    height: 30px;
+    background: white;
+    border: 1px solid gray;
+    font-family: 'Jost', sans-serif;
+    justify-content: center;
+    display: flex;
+    margin: 10px auto;
+    padding: 5px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-login {
+    color: black;
+    width: 60%;
+    height: 30px;
+    background: white;
+    border: 1px solid gray;
+    font-family: 'Jost', sans-serif;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-select {
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    gap: 10px;
+}
+
+.input-select .input-select-dept {
+    color: black;
+    width: 45%;
+    height: auto;
+    background: white;
+    font-family: 'Jost', sans-serif;
+    border: 1px solid gray;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-select .input-select-year {
+    color: black;
+    width: 15%;
+    height: auto;
+    background: white;
+    border: 1px solid gray;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 65%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: #6673F0;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6673F0;
+    /* Neon pink background */
+    box-shadow: 0 0 10px 5px #6673F0;
+    /* Neon pink glow */
+    color: #000;
+    /* Text color on hover */
+}
+
+.login {
+    height: 460px;
+    background-color: #6673F0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    border-radius: 60% / 10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+
+.login label {
+    color: white;
+    transform: scale(.6);
+    /* font size scales up and down */
+}
+
+#chk:checked~.login {
+    transform: translateY(-500px);
+    /* how much should it come up */
+}
+
+#chk:checked~.login label {
+    transform: scale(1);
+}
+
+#chk:checked~.signup label {
+    transform: scale(.6);
+}
+
+@media (max-width: 1400px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .main-gif {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    .main {
+        margin-left: 0;
+        margin-top: 40px;
+        padding-bottom: 20px;
+        width: 100%;
+        height: 35%;
+    }
+    .signup{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .login{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
