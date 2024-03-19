@@ -64,7 +64,7 @@ function registerEvent(event_name) {
                 window.location.href = '/login';
             }
             else {
-                fetch(`/check_registration?event_name=${event_name}`)
+                fetch(`/check_registration?event_name=${events[event_name]["title"]}`)
                 .then(response => response.json())
                
                 .then(async data => {
@@ -120,7 +120,7 @@ function registerEvent(event_name) {
                                 window.location.href = '/login'
                             else{
                                 const registrationData = {
-                                    event_name: event_name,
+                                    event_name: events[event_name]["title"],
                                     participantEmails: participantEmails
                                 };
 

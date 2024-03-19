@@ -11,9 +11,9 @@ exports.login = async(req, res) => {
         .then(Student => {
             if (Student) {
                 req.session.Student = Student;
+                var name = Student.name
                 res.redirect('/');
             } else {
-                // If user does not exist, redirect back to signup
                 res.redirect('/login');
             }
         })

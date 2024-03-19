@@ -21,7 +21,7 @@ function handleLogin(){
                 throw new Error('Network response was not ok');
             }
             // Parse the JSON response
-            sessionStorage.setItem("email", )
+            // sessionStorage.setItem("email", )
             alert("success")
         })
         .catch(error => {
