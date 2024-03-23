@@ -1,4 +1,4 @@
-function handleLogin(){
+function handleLogin() {
     const postData = {
         // Add your login data here, for example:
         email: document.getElementById('email').value,
@@ -29,3 +29,15 @@ function handleLogin(){
             console.error('There was a problem with the fetch operation:', error);
         });
 }
+
+window.onload = function () {
+    window.history.pushState(null, '', window.location.href);
+    window.onpopstate = function () {
+        window.history.pushState(null, '', window.location.href);
+    };
+
+    window.addEventListener('hashchange', function () {
+        window.location.hash = '';
+        window.history.pushState(null, '', window.location.href);
+    });
+};

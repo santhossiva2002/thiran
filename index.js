@@ -22,28 +22,32 @@ mongoose
       secret: process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
-      cookie: { 
-          maxAge: 30 * 60 * 1000, // 30 minutes (adjust as needed)
-          httpOnly: true // Ensures cookies are only accessible via HTTP(S) and not client-side scripts
+      cookie: {
+        maxAge: 30 * 60 * 1000, // 30 minutes (adjust as needed)
+        httpOnly: true // Ensures cookies are only accessible via HTTP(S) and not client-side scripts
       }
-  }));
-  app.use((req, res, next) => {
+    }));
+    app.use((req, res, next) => {
       res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
       res.setHeader('Expires', '-1');
       res.setHeader('Pragma', 'no-cache');
       next();
-  });
+    });
 
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
     app.use('/', routes);
 
+    app.get('/Userevents', function (req, res) {
+      res.render('Userevents'); // Assuming 'events.ejs' is located in the views directory
+    });
+
     app.listen(PORT, () => {
       console.log(`Server is listening on http://localhost:${PORT}`);
     });
 
   })
-  .catch((err) => 
+  .catch((err) =>
     console.error('MongoDb connection error:', err)
   );

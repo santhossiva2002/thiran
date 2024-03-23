@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="cards.css">
+  <script src="https://kit.fontawesome.com/50d2ae4ecf.js" crossorigin="anonymous"></script>
+  <script>
+    function registerEvent() {
+      fetch('/getUserEvents', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(
+          response => response.json())
+        .then(async data => {
+          console.log(data.data)
+          populateCards(data.data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+
+    }
+
+    function populateCards(cardsData) {
+      const cardList = document.getElementById('cardList');
+      cardList.innerHTML = ''; // Clear any existing cards
+
+      // Iterate through the received data and create card elements
+      cardsData.forEach(card => {
+        const cardItem = document.createElement('li');
+        cardItem.classList.add('cards_item');
+
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+
+        const cardImage = document.createElement('div');
+        cardImage.classList.add('card_image');
+
+
+        switch (card.event_name) {
+          case "Nethunt":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Last stand":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Codesprint":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Fortress":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Star of Thiran":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Crickbid Auction":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Witty mindz":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Ctrl + Alt + Qode":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+          case "Triple Trouble":
+            cardImage.innerHTML = `<img src="Images/Karadi.png">`;
+            break
+
+        }
+
+        const cardContent = document.createElement('div');
+        cardContent.classList.add('card_content');
+        cardContent.innerHTML = `
+        <h2 class="card_title">${card.event_name}</h2>
+        <p class="card_text">${card.participants.join('<br>')}</p>
+        <button class="btn card_btn">Delete Event</button>
+      `;
+
+        const deleteButton = cardContent.querySelector('.card_btn');
+        deleteButton.addEventListener('click', function () {
+          // Call your function to handle delete event here
+          console.log(card._id); // Assuming card.event_id is available
+          fetch('/deleteUserevent', {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ _id: card._id })
+          })
+            .then(response => {
+              if (response.ok) {
+                console.log('Event deleted successfully');
+                location.reload();
+              } else {
+                console.error('Failed to delete event');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+
+        });
+
+        // Append elements to construct the card
+        cardElement.appendChild(cardImage);
+        cardElement.appendChild(cardContent);
+        cardItem.appendChild(cardElement);
+        cardList.appendChild(cardItem);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      registerEvent();
+    });
+  </script>
+</head>
+
+<body>
+
+  <div class="main">
+    <h1 class="userName">Nmae</h1>
+    <h1>Registered Events </h1>
+    <ul class="cards" id="cardList">
+      <!-- Cards will be dynamically generated here -->
+    </ul>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
+
+<!-- 
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form> -->

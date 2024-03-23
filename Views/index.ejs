@@ -1,113 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/50d2ae4ecf.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://kit.fontawesome.com/50d2ae4ecf.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <nav>
 
-        <div id="logo">
-            <p>Thiran2K24</p>
-        </div>
-        <div id="nav-links">
-            <a href="#">Home</a>
-            <a href="#aboutuspage">AboutUs</a>
-            <a href="#eventpage">Events</a>
-            <a href="#">Teams</a>
-            <a href="#">Schedule</a>
-            <a href="#contact">Contact</a>
-            <a><i class="fa-regular fa-user"></i></a>
-        </div>
-        <div id="menu-icon">
-            <img src="Images/menu.png" width="30px">
-        </div>
-        <div id="dropdown">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Events</a>
-            <a href="#">Teams</a>
-            <a href="#">Schedule</a>
-            <a href="#">Contact</a>
-        </div>
-    </nav>
+<body onload="handleUser()">
+  <nav>
 
-    <div class="land">
-        <div class="landleft">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script><dotlottie-player src="https://lottie.host/65cfb918-fe72-406b-838e-aa385452566b/VpcyW0Zd0w.json" background="transparent" speed="1" style="width: 100%; height: 100%" direction="1" playMode="normal" loop autoplay></dotlottie-player>
-        </div>
-        
-        <div class="landright">
-         <div class="tmarch">
-            <div class="th1">
-              <h2 style="font-size: 30px;">
-                APRIL 1 & 2 2024
-              </h2>
-        </div>
-      </div>
-            <div class="text1">
-              <div class="tflex">
-              <img src="Images/Logopsg.png" width="60px">
-              <div class="ttt">
-                
-                <p style="font-size: 20px; font-weight: 600;">PSG College of Technology</p>
-                <p style="font-size: 20px; font-weight: 500;">CAA & CSA  <span class="da">Presents</span></p>
-                
-
-                <p></p>
-              </div></div>
-                
-                <h1 class="th1">THIRAN 2K24</h1><br>
-                <button class="bbt">Register</button>
-            </div>
-        </div>
-      </div>
-        <div class="landlefti">
-            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script><dotlottie-player src="https://lottie.host/65cfb918-fe72-406b-838e-aa385452566b/VpcyW0Zd0w.json" background="transparent" speed="1" style="width: 130%; height: 100%" direction="1" playMode="normal" loop autoplay></dotlottie-player>
-                </div>
+    <div id="logo">
+      <p>Thiran2K24</p>
     </div>
-    
-    <div class="abcent" id="aboutuspage">
-<div class="about reveal">
-    
-    <div class="ableft">
+    <div id="nav-links">
+      <a href="#">Home</a>
+      <a href="#aboutuspage">AboutUs</a>
+      <a href="#eventpage">Events</a>
+      <a href="#">Teams</a>
+      <a href="#">Schedule</a>
+      <a href="#contact">Contact</a>
+      <a href="#" id="dropdown-toggle" hidden><i class="fa-regular fa-user"></i></a>
+      <div class="dropdown" id="dropdown-menu">
+        <!-- Dropdown menu content goes here -->
+        <div class="dropdownDiv">
+          <ul>
+            <li><a href="Userevents">My Events</a></li>
+            <li><a href="#" onclick="handleLogout();return false;">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="menu-icon">
+      <img src="Images/menu.png" width="30px">
+    </div>
+    <div id="dropdown">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Events</a>
+      <a href="#">Teams</a>
+      <a href="#">Schedule</a>
+      <a href="#">Contact</a>
+
+    </div>
+  </nav>
+
+  <div class="land">
+    <div class="landleft">
+      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+        type="module"></script><dotlottie-player
+        src="https://lottie.host/65cfb918-fe72-406b-838e-aa385452566b/VpcyW0Zd0w.json" background="transparent"
+        speed="1" style="width: 100%; height: 100%" direction="1" playMode="normal" loop autoplay></dotlottie-player>
+    </div>
+
+    <div class="landright">
+      <div class="tmarch">
+        <div class="th1">
+          <h2 style="font-size: 30px;">
+            APRIL 1 & 2 2024
+          </h2>
+        </div>
+      </div>
+      <div class="text1">
+        <div class="tflex">
+          <img src="Images/Logopsg.png" width="60px">
+          <div class="ttt">
+
+            <p style="font-size: 20px; font-weight: 600;">PSG College of Technology</p>
+            <p style="font-size: 20px; font-weight: 500;">CAA & CSA <span class="da">Presents</span></p>
+
+
+            <p></p>
+          </div>
+        </div>
+
+        <h1 class="th1">THIRAN 2K24</h1><br>
+        <button class="bbt" onclick="handleHomepageRegister()">Register</button>
+      </div>
+    </div>
+  </div>
+  <div class="landlefti">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <dotlottie-player src="https://lottie.host/65cfb918-fe72-406b-838e-aa385452566b/VpcyW0Zd0w.json"
+      background="transparent" speed="1" style="width: 130%; height: 100%" direction="1" playMode="normal" loop
+      autoplay></dotlottie-player>
+  </div>
+  </div>
+
+  <div class="abcent" id="aboutuspage">
+    <div class="about reveal">
+
+      <div class="ableft">
         <h1 class="th1" style="font-size: 30px;">About Thiran</h1><br>
-            <p>The alliance of the two associations, Computer Applications Association(CAA) and Computational Sciences Association(CSA) of PSG College of Technology presents the 15’th edition of THIRAN, which has active participation from the various departments within the college every year.</p>
-<br>
+        <p>The alliance of the two associations, Computer Applications Association(CAA) and Computational Sciences
+          Association(CSA) of PSG College of Technology presents the 15’th edition of THIRAN, which has active
+          participation from the various departments within the college every year.</p>
+        <br>
 
-                <p>Two associations of PSG Tech, the Computer Applications Association and the Computational Sciences Association come together to bring you the 15'th edition of THIRAN, an intra-collegiate technical event. Thiran isn't simply a bid to find the technical nonpareil of PSG Tech, it also endeavors to be a platform where participants will be tested on their ability to think on their feet and outside the proverbial box. </p>
-          <br>  </p> <p>Every year, a heady combination of departmental pride and the pressure to prove oneself leads to an exhilarating clash between the best of PSG Tech. This year, the stakes are higher, the questions more challenging and the competition more intense. So, are you ready?</p>
-        
+        <p>Two associations of PSG Tech, the Computer Applications Association and the Computational Sciences
+          Association come together to bring you the 15'th edition of THIRAN, an intra-collegiate technical event.
+          Thiran isn't simply a bid to find the technical nonpareil of PSG Tech, it also endeavors to be a platform
+          where participants will be tested on their ability to think on their feet and outside the proverbial box. </p>
+        <br> </p>
+        <p>Every year, a heady combination of departmental pride and the pressure to prove oneself leads to an
+          exhilarating clash between the best of PSG Tech. This year, the stakes are higher, the questions more
+          challenging and the competition more intense. So, are you ready?</p>
+
+      </div>
+      <br>
+      <div class="abright">
+        <img src="Images/km.jpg">
+      </div>
     </div>
-    <br>
-    <div class="abright">
-            <img src="Images/km.jpg">
-    </div>
-   </div></div>
-   <br><br>
-<div class="cent" id="eventpage">
-  <h1 class="th1" style="font-size: 40px;">Events</h1><br><br>
+  </div>
+  <br><br>
+  <div class="cent" id="eventpage">
+    <h1 class="th1" style="font-size: 40px;">Events</h1><br><br>
     <div class="events reveal">
       <section class="articles">
 
         <div class="card">
           <!-- <img src="Images/km.jpg"> -->
           <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
+          <h2 class="card__title">STAR OF THIRAN</h2>
           <div class="card__date">
-            
+
             <span class="time">14:34</span><br>
             <span class="date">Mon,21 August</span>
           </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_1')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_1')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
+        </div>
+
+        <div class="card">
+          <!-- <img src="Images/km.jpg"> -->
+          <img src="Images/Karadi.png" class="default-display">
+          <h2 class="card__title">CODESPRINT</h2>
+          <div class="card__date">
+
+            <span class="time">14:34</span><br>
+            <span class="date">Mon,21 August</span>
+          </div>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_2')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
+        </div>
+
+        <div class="card">
+          <!-- <img src="Images/km.jpg"> -->
+          <img src="Images/Karadi.png" class="default-display">
+          <h2 class="card__title">CRICKBID AUCTION</h2>
+          <div class="card__date">
+
+            <span class="time">14:34</span><br>
+            <span class="date">Mon,21 August</span>
+          </div>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_3')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
+        </div>
+
+        <div class="card">
+          <!-- <img src="Images/km.jpg"> -->
+          <img src="Images/Karadi.png" class="default-display">
+          <h2 class="card__title">NETHUNT</h2>
+          <div class="card__date">
+
+            <span class="time">14:34</span><br>
+            <span class="date">Mon,21 August</span>
+          </div>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_4')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
         </div>
 
         <div class="card">
@@ -115,135 +194,84 @@
           <img src="Images/Karadi.png" class="default-display">
           <h2 class="card__title">WITTY MINTDS</h2>
           <div class="card__date">
-            
+
             <span class="time">14:34</span><br>
             <span class="date">Mon,21 August</span>
           </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_2')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_5')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
         </div>
 
         <div class="card">
           <!-- <img src="Images/km.jpg"> -->
           <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
+          <h2 class="card__title">CTRL + ALT + QODE</h2>
           <div class="card__date">
-           
+
             <span class="time">14:34</span><br>
             <span class="date">Mon,21 August</span>
           </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_3')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_6')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
         </div>
 
         <div class="card">
           <!-- <img src="Images/km.jpg"> -->
           <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
+          <h2 class="card__title">FORTRESS</h2>
           <div class="card__date">
-            
+
             <span class="time">14:34</span><br>
             <span class="date">Mon,21 August</span>
           </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_4')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_7')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
         </div>
 
         <div class="card">
           <!-- <img src="Images/km.jpg"> -->
           <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
+          <h2 class="card__title">LAST STAND</h2>
           <div class="card__date">
-            
+
             <span class="time">14:34</span><br>
             <span class="date">Mon,21 August</span>
           </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_5')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
+          </div>
+          <button class="register-button" onclick="redirectToEvent('event_8')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
         </div>
 
         <div class="card">
           <!-- <img src="Images/km.jpg"> -->
           <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
+          <h2 class="card__title">TRIPLE TROUBLE</h2>
           <div class="card__date">
-           
-            <span class="time">14:34</span><br>
-            <span class="date">Mon,21 August</span>
-          </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_6')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
-        </div>
 
-        <div class="card">
-          <!-- <img src="Images/km.jpg"> -->
-          <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
-          <div class="card__date">
-            
             <span class="time">14:34</span><br>
             <span class="date">Mon,21 August</span>
           </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_7')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
-        </div>
-
-        <div class="card">
-          <!-- <img src="Images/km.jpg"> -->
-          <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
-          <div class="card__date">
-            
-            <span class="time">14:34</span><br>
-            <span class="date">Mon,21 August</span>
+          <div class="popup">
+            <p class="title">EVENT DESCPRITION</p>
+            <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
           </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_8')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
-        </div>
-
-        <div class="card">
-          <!-- <img src="Images/km.jpg"> -->
-          <img src="Images/Karadi.png" class="default-display">
-          <h2 class="card__title">WITTY MINTDS</h2>
-          <div class="card__date">
-           
-            <span class="time">14:34</span><br>
-            <span class="date">Mon,21 August</span>
-          </div>
-            <div class="popup">
-                <p class="title">EVENT DESCPRITION</p>
-                <p style="color: white;">"noting to say sxdcfghbjkgtfyguh qteudb qegdvbqeh uevfjqevbfjheqbf qegtfvgj"</p>
-            </div>
-            <button class="register-button" onclick="redirectToEvent('event_9')"><b>REGISTER</b></button>
-            <i class="fa-solid fa-fingerprint"></i>
+          <button class="register-button" onclick="redirectToEvent('event_9')"><b>REGISTER</b></button>
+          <!-- <i class="fa-solid fa-fingerprint"></i> -->
         </div>
 
 
@@ -251,39 +279,40 @@
 
     </div>
 
-</div>
+  </div>
 
 
-<footer class="ft-main" id="contact">
-  <!-- <div class="ft-main-item">
+  <footer class="ft-main" id="contact">
+    <!-- <div class="ft-main-item">
      <img class="caa" src="Images/CAA.png" width="100rem" height="100rem">
     <p>Computer Applications Association
     </p> 
     <i class="fa-brands fa-instagram"></i>
  </div> -->
-  <div class="ft-main-item">
-     <h3><b>REGISTRATION SUPPORT</b></h3><br>
-     <p>Peter - 1234567890</p>
-     <p>Parker - 1234567890</p>
-  </div>
-  <div class="ft-main-item">
-     <h3><b>TECHNICAL SUPPORT</b></h3><br>
-     <p>Tony - 1234567890</p>
-     <p>Stark - 1234567890</p>
-  </div>
-  <div class="ft-main-item">
-     <h3><b>SECRETARIES</b></h3><br>
-     <p>Steve - 1234567890</p>
-     <p>Roger - 1234567890</p>
-  </div>
-  
-  <br>
- </footer>
-   
-    
+    <div class="ft-main-item">
+      <h3><b>REGISTRATION SUPPORT</b></h3><br>
+      <p>Peter - 1234567890</p>
+      <p>Parker - 1234567890</p>
+    </div>
+    <div class="ft-main-item">
+      <h3><b>TECHNICAL SUPPORT</b></h3><br>
+      <p>Tony - 1234567890</p>
+      <p>Stark - 1234567890</p>
+    </div>
+    <div class="ft-main-item">
+      <h3><b>SECRETARIES</b></h3><br>
+      <p>Steve - 1234567890</p>
+      <p>Roger - 1234567890</p>
+    </div>
 
-    <script src="index.js"></script>
+    <br>
+  </footer>
+
+
+
+  <script src="index.js"></script>
 </body>
+
 </html>
 
 <!-- 

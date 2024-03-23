@@ -19,7 +19,7 @@ exports.checkRegistration = async (req, res) => {
         if (isRegistered) {
             res.status(200).json({ message: 'Participant already registered' });
         }
-        else{
+        else {
             res.status(200).json({ message: 'Participant not registered' });
         }
 
@@ -34,7 +34,7 @@ exports.registerEvent = async (req, res) => {
     const userEmail = req.session.Student.email; // Assuming the email is stored in the session
     const { event_name, participantEmails } = req.body;
     participantEmails.push(userEmail)
-    
+
 
     if (!userEmail || !event_name || !participantEmails || !Array.isArray(participantEmails)) {
         return res.status(400).json({ error: 'Invalid request. Please provide user email, event name, and participant emails array.' });
@@ -53,7 +53,7 @@ exports.registerEvent = async (req, res) => {
         // Save the Participant document to the database
         await newRegistration.save();
         console.log(newRegistration)
-        
+
         // Response if registration is successful
         res.json({ message: 'Registration successful!' });
     } catch (error) {
@@ -93,5 +93,30 @@ exports.check_student = async (req, res) => {
     } catch (error) {
         console.error('Error checking student email:', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+exports.getUserEvents = async (req, res) => {
+    const email = req.session.Student.email;
+    const data = await Registration.find({ participants: { $in: email } })
+    res.json({
+        "data": data
+    })
+    console.log(data)
+};
+
+exports.deleteUserevent = async (req, res) => {
+    const id = req.body;
+    console.log(id);
+    const result = await Registration.deleteOne({ _id: id })
+    if (result.deletedCount > 0) {
+        res.json({
+            "data": "success"
+        });
+    } else {
+        res.json({
+            "data": "not success"
+        });
     }
 };
