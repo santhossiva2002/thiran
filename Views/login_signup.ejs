@@ -1,56 +1,111 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Thiran24</title>
-	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-    <link href="login_signup.css" rel="stylesheet" />
-</head>
+<!-- Coding by CodingNepal | www.codingnepalweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login and Registration Form in HTML & CSS | CodingLab </title>
+    <link rel="stylesheet" href="login_signup.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-	<div class="main-content">
-		<div class="main-gif">
-			<img src="./images/login.gif" alt="login portal image" height="500px" width="525px">
-		</div>
-		<div class="main">  	
-			<input type="checkbox" id="chk" aria-hidden="true" />
-				<div class="signup">
-					<form action="/login" method="POST">
-						<label class="register" for="chk" aria-hidden="true">LOGIN</label>
-						
-						<input class="input-login" type="email" name="email" placeholder="Email" required="">
-						<input class="input-login" type="password" name="password" placeholder="Password" required="">
-						<button type="submit" name="submit" value="submit">Login</button>
-					</form>
-				</div>
-	
-				<div class="login">
-					<form action="/signup" method="POST">
-						<label class="register-label" for="chk" aria-hidden="true">SIGN UP</label>
-						<input class="input-register" type="text" name="name" placeholder="User name" required="">
-						<input class="input-register" type="email" name="email" placeholder="Email" required="">
-						<input class="input-register" type="tel" name="phone" placeholder="Phone Number" required="">
-						
-						<input class="input-register" type="password" name="password" placeholder="Password" required="">
-						<div class="input-select">
-							<select class="input-select-dept" name="department">
-								<option class="input-select-dept" value="">Department</option>
-								<option class="input-select-dept" value="Computer Application">Computer Applications</option>
-								<option class="input-select-dept" value="Computer Science Engineering">Computer Science Engineering</option>
-							</select>
-							<select class="input-select-year" name="year">
-								<option value="">year</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</div>
-						<button type="submit" name="submit" value="login">SignUp</button>
-					</form>
-				</div>
-		</div>
-	</div>
-	<script src="login_signup.js"></script>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="./images/login.gif" alt="">
+        <div class="text">
+          <span class="text-1">Every new friend is a <br> new adventure</span>
+          <span class="text-2">Let's get connected</span>
+        </div>
+      </div>
+      <div class="back">
+        <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Login</div>
+			<form action="/login" method="POST">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Enter your password" required>
+              </div>
+              <div class="text"><a href="#">Forgot password?</a></div>
+              <div class="button input-box">
+                <input type="submit" value="Sumbit">
+              </div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+            </div>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Signup</div>
+		  <form action="/signup" method="POST">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" name="name" placeholder="Enter your name" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-phone"></i>
+                <input type="tel" name="phone" placeholder="Phone Number" required="">
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" placeholder="Enter your password" required>
+              </div>
+              <div class="input-select">
+                <div class="input-select-dept">
+                    
+                    <select id="programme" name="programme" onchange="showDepartments()">
+                        <option value="">Select Programme</option>
+                        <option value="engineering">Bachelor of Engineering/Technology Programmes</option>
+                        <option value="science">Bachelor of
+                            Science Programmes</option>
+                            <option value="master">Post Graduate Programmes</option>
+                            <option value="postgradscience">Post Graduate Programmes in Science</option>
+                        </select>
+                    </div>
+
+                    <div id="departmentDiv" style="display: none;" class="input-select-dept">
+                        <select id="department" name="department" onchange="showYears()">
+                            <option value="">Select Department</option>
+                        </select>
+                    </div>
+
+                    <div id="yearDiv" style="display: none;" class="input-select-year">
+                        <select id="year" name="year">
+                            <option value="">Select Year</option>
+                        </select>
+                    </div>
+                </div>
+              <div class="button input-box">
+                <input type="submit" value="Sumbit">
+              </div>
+              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+            </div>
+
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+  <script src="login_signup.js"></script>
 </body>
 </html>

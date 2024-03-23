@@ -24,8 +24,8 @@ exports.login = async (req, res) => {
 }
 
 exports.signup = async (req, res) => {
-    const { name, email, phone, password, department, year } = req.body;
-    const newStudent = new Student({ name, email, phone, password, department, year });
+    const { name, email, phone, password, programme,department, year } = req.body;
+    const newStudent = new Student({ name, email, phone, password, programme,department, year });
     newStudent.save()
         .then(user => {
             // Redirect to login after signup
